@@ -1,0 +1,14 @@
+ssh turtlebot@192.168.0.100
+roslaunch turtlebot_le2i ProjectFinal.launch
+roslaunch turtlebot_rviz_launchers view_navigation.launch
+rosrun rbx1_nav move_base_square.py
+
+
+
+
+
+roslaunch turtlebot_le2i remap_rplidar_minimal.launch
+roslaunch rbx1_nav tb_demo_amcl.launch map:=map_class.yaml
+roslaunch turtlebot_rviz_launchers view_navigation.launch
+rosrun rbx1_nav initial_pose.py
+rosrun rbx1_nav move_base_square.py
