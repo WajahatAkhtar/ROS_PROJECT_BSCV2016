@@ -1,0 +1,28 @@
+
+<launch>
+
+	
+	<!-- Launch minimal.launch -->
+        <include file="$(find turtlebot_le2i)/launch/map_rplidar_minimal.launch"/>
+
+	<include file="$(find rbx1_nav)/launch/tb_demo_amcl.launch"> 
+       <arg name="map" value="map_class.yaml"/>
+	<!-- Run the map server with the desired map -->
+	<!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find rbx1_nav)/maps/$(arg map)"/> -->
+         </include>
+		
+
+	<!-- Initial Pose -->
+	<node pkg="rbx1_nav" name="my_initial_pose" type="initial_pose.py">
+	</node>
+	
+
+	<include file="$(find openni_launch)/launch/openni.launch"/>
+
+	<!-- RVIZ launch -->
+	<!-- <include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"/> -->
+
+</launch>     
+
+
+   
